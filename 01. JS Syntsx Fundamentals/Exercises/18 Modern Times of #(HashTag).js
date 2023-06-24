@@ -2,9 +2,12 @@ function solve(text){
     let textArr = text.split(" ");
     let wordsArr = [];
 
+
     for (let i = 0; i < textArr.length; i++) {
         let currentWord = textArr[i];
-        if(currentWord.length > 1 && currentWord.startsWith('#')){
+        if(currentWord.length > 1 &&
+            currentWord.startsWith('#') &&
+            /^[A-Za-z]*$/.test(currentWord.substring(1))){
             let word = currentWord.substring(1, currentWord.length);
             wordsArr.push(word);
             console.log(word);
