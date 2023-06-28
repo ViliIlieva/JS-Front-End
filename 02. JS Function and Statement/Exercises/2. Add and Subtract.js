@@ -1,18 +1,22 @@
 function solve(firstNum, secondNum, thirdNum){
-    let sumNum = sum(firstNum, secondNum);
-    let result = subtract(sumNum, thirdNum);
+    const sum = (a, b) => a + b;
+    const subtract = (mySum, num) => mySum - num;
 
-    console.log(result);
+    return subtract(sum(firstNum, secondNum), thirdNum);
 
-    function sum(a, b){
-        return a + b;
-    }
-
-    function subtract(c, d){
-        return c - d;
-    }
+    // let sumNum = sum(firstNum, secondNum);
+    // let result = subtract(sumNum, thirdNum);
+    // console.log(result);
+    //
+    // function sum(a, b){
+    //     return a + b;
+    // }
+    //
+    // function subtract(c, d){
+    //     return c - d;
+    // }
 }
 
-solve(23, 6, 10);
-solve(1, 17, 30);
-solve(42, 58, 100);
+console.log(solve(23, 6, 10));
+console.log(solve(1, 17, 30));
+console.log(solve(42, 58, 100));

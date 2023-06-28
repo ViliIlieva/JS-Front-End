@@ -2,6 +2,7 @@ function solve(firstChar, secondChar) {
     let firstCode = asciiCod(firstChar);
     let secondCode = asciiCod(secondChar);
 
+
     if(firstCode < secondCode){
         console.log(charsArr(firstCode, secondCode).join(' '));
     }else {
@@ -11,6 +12,8 @@ function solve(firstChar, secondChar) {
     function asciiCod(char){
         return char.charCodeAt(0);
     }
+    //може да стане и със =>
+    // const asciiCod = (char) => char.charCodeAt(0);
 
     function charsArr(n, m){
         let arr = [];
