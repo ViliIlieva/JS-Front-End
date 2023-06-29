@@ -2,6 +2,8 @@ function passValidator(str){
     let checkPassLength = new RegExp("^.{6,10}$");
     let checkForSpecialSymbol = new RegExp("^[A-Za-z0-9]*$");
     let checkAtLeastTwoDigits = new RegExp("[0-9].*[0-9]");
+    // let checkAtLeastTwoDigits = (pass) => [...pass.matchAll(/\d/g)].length >= 2;
+    // проверява колко цифри има в стринга и връща array от arrays с дължина техния брой
     let passIsValid = true;
 
     if (!checkPassLength.test(str)){
