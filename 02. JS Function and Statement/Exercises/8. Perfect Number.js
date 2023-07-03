@@ -11,6 +11,11 @@ function perfectNum(number) {
     } else {
         console.log("It's not so perfect.");
     }
+
+    //функцията reduce минава през целия масив и сумира елементите му, два по два,
+    //let sum = 0;
+    // let arrSum = arr.reduce((prevValue, currentValue) =>
+    // return prevValue + currentValue, sum);
 }
 
 perfectNum(6);
