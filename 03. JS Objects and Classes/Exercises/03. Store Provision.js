@@ -19,9 +19,9 @@ function solve(input1, input2) {
         if (!storeStock.hasOwnProperty(orderedArr[i])) {
             storeStock[orderedArr[i]] = orderedArr[i + 1];
         } else {
-            let oldNum =  Number(storeStock[orderedArr[i]]);
-            let orderNum = Number(orderedArr[i + 1]);
-            storeStock[orderedArr[i]] = oldNum + orderNum;
+            let storeCount =  Number(storeStock[orderedArr[i]]);
+            let orderCount = Number(orderedArr[i + 1]);
+            storeStock[orderedArr[i]] = storeCount + orderCount;
         }
     }
 
