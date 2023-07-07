@@ -1,9 +1,24 @@
-function inventory(input){
+function inventory(input) {
+    let heroRegister = [];
 
     for (const line of input) {
-
+        let [name, level, ...[items]] = line.split(' / ');
+        level = Number(level);
+        let hero = [name, level, items];
+        heroRegister.push(hero);
     }
 
+    let sortedRegisterByHeroLevel = heroRegister
+        .sort(([A, levelA, itemsA], [B, levelB, itemsB]) => {
+            return levelA - levelB
+        });
+
+    for (const hero of sortedRegisterByHeroLevel) {
+        console.log(
+            `Hero: ${hero[0]}
+             level => ${hero[1]}
+             items => ${hero[2]}`);
+    }
 }
 
 inventory([
