@@ -1,11 +1,8 @@
 function calc() {
-    const firstNum = Number(document.getElementById('num1').value);
+    const firstNum = document.getElementById('num1').value;
+    const secNum = document.getElementById('num2').value;
 
-    const secInput = document.getElementById('num2');
-    let secNum = Number(secInput.value);//втори вариант за обръщане в число
+    let sum = Number(firstNum) + Number(secNum);
 
-    const sumInput = document.getElementById('sum');
-    let sum = firstNum + secNum;
-
-    sumInput.value = sum; //закачаме към нашия инпут резултата
+    document.getElementById('sum').value = sum; //закачаме към нашия инпут резултата
 }
