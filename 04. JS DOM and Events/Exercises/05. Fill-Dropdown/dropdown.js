@@ -1,8 +1,12 @@
 function addItem() {
-    const text = document.getElementById('newItemText').value;
-    const value = document.getElementById('newItemValue').value;
+    const text = document.getElementById('newItemText');
+    const value = document.getElementById('newItemValue');
+    const menu = document.getElementById('menu');
 
+    let optionElement = document.createElement('option');
+    optionElement.textContent = text.value + ' ' + value.value;
+    menu.appendChild(optionElement);
 
-    console.log(text);
-    console.log(value);
+    text.value = '';
+    value.value = '';
 }
