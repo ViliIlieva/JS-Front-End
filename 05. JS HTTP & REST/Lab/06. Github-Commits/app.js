@@ -6,7 +6,6 @@ async function loadCommits() {
 
     const loader = document.getElementById('loader');
 
-
     try{
         loader.style.display = 'block';//докато зарежда данните да се покаже
         const allCommitsRes = await fetch(`${BASE_URL}/${username}/${repo}/commits`)//ще взема всички commits понеже те са промис си правим още един await
