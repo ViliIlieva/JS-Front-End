@@ -32,8 +32,15 @@ function attachEvents() {
                     td2.textContent = author;
                     const td3 = document.createElement('td');
 
+                    //Edit
                     const editBtn = document.createElement('button');
-                    editBtn.addEventListener('click', editBook);
+                    editBtn.addEventListener('click', () => {
+                        editBookId = key;
+                        formTitle.textContent = 'Edit FORM';
+                        submitBtn.textContent = 'Save';
+                        titleInput.value = title;
+                        authorInput.value = author;
+                    });
                     editBtn.textContent = 'Edit';
                     editBtn.id = key;
 
@@ -87,13 +94,6 @@ function attachEvents() {
             })
     }
 
-    function editBook() {
-        editBookId = this.id;
-        formTitle.textContent = 'Edit FORM';
-        submitBtn.textContent = 'Save';
-        getBook(editBookId);
-    }
-
     function save() {
         let title = titleInput.value;
         let author = authorInput.value;
@@ -115,15 +115,5 @@ function attachEvents() {
             })
     }
 
-    function getBook(id) {
-        fetch(`${BASE_URL}${id}`)
-            .then(res => res.json())
-            .then((book) => {
-                let {title, author} = book;
-                titleInput.value = title;
-                authorInput.value = author;
-            })
-    }
 }
-
 attachEvents();
