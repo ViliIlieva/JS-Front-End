@@ -52,13 +52,13 @@ function attachEvents() {
 
                     fetch(`${UPCOMING_INFO_URL}${codeLocation}`)
                         .then(res => res.json())
-                        .then((upcomingDays) => {
-                            let upcomingDayInfoDay = Object.values(upcomingDays['forecast']);
-                            let forecastDiv = document.createElement('span');
-                            forecastDiv.classList.add("forecast_info");
+                        .then((data) => {
+                            let forecastDiv = document.createElement('div');
+                            forecastDiv.classList.add("forecast-info");
 
-                            for (const threeDayElement of upcomingDayInfoDay) {
-                                let{low, high, condition} = threeDayElement;
+                            let upcomingDays = Object.values(data['forecast']);
+                            for (const object of upcomingDays) {
+                                let{low, high, condition} = object;
                                 let symbol = setSymbol(condition);
                                 let upcomingSpan = document.createElement('span');
                                 upcomingSpan.classList.add("upcoming");
