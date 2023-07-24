@@ -13,10 +13,10 @@ function attachEvents() {
             .then(res => res.json())
             .then((messages) => {
                 textarea.innerHTML = '';
-                for (const key in messages) {
-                    let{author, content} = messages[key];
-                    textarea.append(`${author}: ${content}\n`)
-                }
+                let allMessages = Object.values(messages)
+                    .map(v => `${v.author}: ${v.content}`)
+                    .join('\n');
+                textarea.value = allMessages;
             })
     }
 
