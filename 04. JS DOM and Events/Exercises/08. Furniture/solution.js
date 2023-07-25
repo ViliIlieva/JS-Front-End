@@ -14,20 +14,20 @@ function solve() {
         for (const {img, name, price, decFactor} of input) {
             const tableRow = createElement('tr', '', tbody);//всички останали аргументи от функцията остават празни защото реда не ги съдържа
             //създава първата клетка от реда и после прикача снимката към нея
-            const firstColumn = createElement('td', '',tableRow);
+            const firstColumn = createElement('td', '', tableRow);
             createElement('img', '', firstColumn, '', '', {src: img});
-            const secColumn = createElement('td', '',tableRow);
+            const secColumn = createElement('td', '', tableRow);
             createElement('p', name, secColumn);
-            const thirdColumn = createElement('td', '',tableRow);
+            const thirdColumn = createElement('td', '', tableRow);
             createElement('p', price, thirdColumn);
-            const fourthColumn = createElement('td', '',tableRow);
+            const fourthColumn = createElement('td', '', tableRow);
             createElement('p', decFactor, fourthColumn);
-            const fifthColumn = createElement('td', '',tableRow);
+            const fifthColumn = createElement('td', '', tableRow);
             createElement('input', '', fifthColumn, '', '', {type: 'checkbox'});
         }
     }
 
-    function byu(){
+    function byu() {
         const selectedRows = Array.from(document.querySelectorAll('tbody tr input:checked'));
         let boughtItems = [];
         let totalPrice = 0;
@@ -53,19 +53,18 @@ function solve() {
     //id - string
     //classes - array
     //attributes - object
-    function createElement(type, content, parentNode, id, classes, attributes) {
+    function createElement(type, content, parentNode, id, classes, attributes, useInnerHtml) {
         const htmlElement = document.createElement(type);
 
-        if (content && type !== 'input') {//да се направи допълнителна проверка за textarea
-            htmlElement.textContent = content;
-        }
-
-        if (content && type === 'input') {
-            htmlElement.value = content;
-        }
-
-        if (parentNode) {
-            parentNode.appendChild(htmlElement);
+        if (content && useInnerHtml) {
+            htmlElement.innerHTML = content;
+        } else {
+            if (content && type !== 'input') {
+                htmlElement.textContent = content;
+            }
+            if (content && type === 'input') {
+                htmlElement.value = content;
+            }
         }
 
         if (id) {
@@ -73,7 +72,7 @@ function solve() {
         }
 
         //['item1', 'item2', ...]
-        if (classes) {
+        if (classes && classes.length > 0) {
             htmlElement.classList.add(...classes);//може да са няколко класа
         }
 
@@ -82,6 +81,10 @@ function solve() {
             for (const key in attributes) {
                 htmlElement.setAttribute(key, attributes[key]);
             }
+        }
+
+        if (parentNode) {
+            parentNode.appendChild(htmlElement);
         }
         return htmlElement;
     }
