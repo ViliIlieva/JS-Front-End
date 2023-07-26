@@ -93,7 +93,6 @@ function solve() {
 
     function createElement(type, parentNode, content, id, classes, attributes, useInnerHtml) {
         const htmlElement = document.createElement(type);
-
         if (content && useInnerHtml) {
             htmlElement.innerHTML = content;
         } else {
@@ -104,23 +103,19 @@ function solve() {
                 htmlElement.value = content;
             }
         }
-
         if (id) {
             htmlElement.id = id;
         }
-
         //['item1', 'item2', ...]
         if (classes && classes.length > 0) {
             htmlElement.classList.add(...classes);//може да са няколко класа
         }
-
         //{src: 'link to img', href: 'link to site', 'type: 'checkbox''}
         if (attributes) {
             for (const key in attributes) {
                 htmlElement.setAttribute(key, attributes[key]);
             }
         }
-
         if (parentNode) {
             parentNode.appendChild(htmlElement);
         }
